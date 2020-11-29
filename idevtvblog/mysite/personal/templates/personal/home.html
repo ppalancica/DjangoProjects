@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="border: 2px solid #000;">
+  <h1>This is the body</h1>
+  <p>Here is where you put staff that shoud be displayed to the users.</p>
+  {% include 'personal/snippets/body_snippet.html' %}
+</div>
+
+{% endblock content %}
