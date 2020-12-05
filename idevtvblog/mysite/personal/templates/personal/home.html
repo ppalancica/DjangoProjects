@@ -18,8 +18,12 @@
     {% include 'personal/snippets/body_snippet.html' with value=item %}
   {% endfor %} -->
 
-  {% for question in questions %}
+  <!-- {% for question in questions %}
     {% include 'personal/snippets/body_snippet.html' with value=question %}
+  {% endfor %} -->
+
+  {% for account in accounts %}
+    <p>{{account}}</p>
   {% endfor %}
 
 </div>
