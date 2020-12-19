@@ -1,8 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Here are our notes</h1>
-    {% for note in notes %}
-        <p>{{ note }}</p>
-    {% endfor %}
+    <div class="text-center mt-5">
+      <h2>To-Do List</h2>
+    </div>
+    <hr />
+    <div class="row">
+      {% for note in notes %}
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h4>
+              {{ note.title }}
+              <span class="badge bg-{{ note.get_label_display }}">
+              {{ note.due_date }}
+              </span>
+            </h4>
+            <span><i class="fas fa-check"></i></span>
+            <span><i class="fas fa-trash"></i></span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </row>
 {% endblock %}
