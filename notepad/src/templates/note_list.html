@@ -2,26 +2,34 @@
 
 {% block content %}
     <div class="text-center mt-5">
-      <h2>To-Do List</h2>
+      <h2>To-Do List
+        <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <i class="fas fa-plus fa-sm"></i>
+        </a>
+      </h2>
     </div>
     <hr />
 
-    <form method="POST">
-      {% csrf_token %}
-      <div class="mb-3">
-        <label for="id_title">Title</label>
-        {{ form.title }}
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="id_title">Title</label>
+            {{ form.title }}
+          </div>
+          <div class="mb-3">
+            <label for="id_due_date">Due Date</label>
+            {{ form.due_date }}
+          </div>
+          <div class="mb-3">
+            <label for="id_label">Label</label>
+            {{ form.label }}
+          </div>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </form>
       </div>
-      <div class="mb-3">
-        <label for="id_due_date">Due Date</label>
-        {{ form.due_date }}
-      </div>
-      <div class="mb-3">
-        <label for="id_label">Label</label>
-        {{ form.label }}
-      </div>
-      <button type="submit" class="btn btn-primary">Create</button>
-    </form>
+    </div>
 
     <div class="row">
       {% for note in to_do_list %}
