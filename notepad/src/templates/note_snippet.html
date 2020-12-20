@@ -17,11 +17,11 @@
       </span>
       <span class="icons">
         {% if type == "DELETE" %}
-          <a href="{% url 'finish-note-item' note.id %}"><i class="fas fa-check"></i></a>
+          <a href="{{ note_snippet_var.get_finish_item_url }}"><i class="fas fa-check"></i></a>
         {% else %}
-          <a href="{% url 'recover-note-item' note.id %}"><i class="fas fa-times"></i></a>
+          <a href="{{ note_snippet_var.get_recover_item_url }}"><i class="fas fa-times"></i></a>
         {% endif %}
-        <a href="{% url 'delete-note-item' note.id %}"><i class="fas fa-trash" style="color: red"></i></a>
+        <a href="{{ note_snippet_var.get_delete_item_url }}"><i class="fas fa-trash" style="color: red"></i></a>
       </span>
     </h4>
   </div>
