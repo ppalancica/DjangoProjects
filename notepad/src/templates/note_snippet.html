@@ -1,0 +1,28 @@
+<style media="screen">
+  h4 {
+    position: relative;
+  }
+  .icons {
+    position: absolute;
+    right: 4px;
+  }
+</style>
+
+<div class="card">
+  <div class="card-body">
+    <h4>
+      {{ note_snippet_var.title }}
+      <span class="badge bg-{{ note.get_label_display }}">
+      {{ note_snippet_var.due_date }}
+      </span>
+      <span class="icons">
+        {% if type == "DELETE" %}
+          <a href="{% url 'finish-note-item' note.id %}"><i class="fas fa-check"></i></a>
+        {% else %}
+          <a href="{% url 'recover-note-item' note.id %}"><i class="fas fa-times"></i></a>
+        {% endif %}
+        <a href="{% url 'delete-note-item' note.id %}"><i class="fas fa-trash" style="color: red"></i></a>
+      </span>
+    </h4>
+  </div>
+</div>

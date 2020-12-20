@@ -18,3 +18,14 @@ def finish_item(request, id):
     note.finished = True
     note.save()
     return redirect('note-list')
+
+def recover_item(request, id):
+    note = get_object_or_404(Note, id=id)
+    note.finished = False
+    note.save()
+    return redirect('note-list')
+
+def delete_item(request, id):
+    note = get_object_or_404(Note, id=id)
+    note.delete()
+    return redirect('note-list')

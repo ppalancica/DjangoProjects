@@ -1,17 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<style media="screen">
-  h4 {
-    position: relative;
-  }
-  .icons {
-    position: absolute;
-    right: 4px;
-  }
-</style>
-
     <div class="text-center mt-5">
       <h2>To-Do List</h2>
     </div>
@@ -19,20 +8,7 @@
     <div class="row">
       {% for note in to_do_list %}
       <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <h4>
-              {{ note.title }}
-              <span class="badge bg-{{ note.get_label_display }}">
-              {{ note.due_date }}
-              </span>
-              <span class="icons">
-                <a href="{% url 'finish-note-item' note.id %}"><i class="fas fa-check"></i></a>
-                <a href="#"><i class="fas fa-trash" style="color: red"></i></a>
-              </span>
-            </h4>
-          </div>
-        </div>
+        {% include "note_snippet.html" with note_snippet_var=note type="DELETE" %}
       </div>
       {% endfor %}
     </div>
@@ -43,18 +19,7 @@
     <div class="row">
       {% for note in finished_list %}
       <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <h4>
-              {{ note.title }}
-              <span class="badge bg-{{ note.get_label_display }}">
-              {{ note.due_date }}
-              </span>
-            </h4>
-            <span><i class="fas fa-check"></i></span>
-            <span><i class="fas fa-trash"></i></span>
-          </div>
-        </div>
+        {% include "note_snippet.html" with note_snippet_var=note type="ADD" %}
       </div>
       {% endfor %}
     </div>
