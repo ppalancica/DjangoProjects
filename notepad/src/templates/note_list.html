@@ -5,7 +5,24 @@
       <h2>To-Do List</h2>
     </div>
     <hr />
-    {{ form.as_p }}
+
+    <form method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="id_title">Title</label>
+        {{ form.title }}
+      </div>
+      <div class="mb-3">
+        <label for="id_due_date">Due Date</label>
+        {{ form.due_date }}
+      </div>
+      <div class="mb-3">
+        <label for="id_label">Label</label>
+        {{ form.label }}
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+
     <div class="row">
       {% for note in to_do_list %}
       <div class="col-12">
