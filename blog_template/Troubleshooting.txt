@@ -1,0 +1,4 @@
+$ python manage.py collectstatic
+
+226 static files copied to '/Users/ppalancica/DjangoProjects/blog_template/static_root'.
+(env) Pavels-MacBook-Pro:src ppalancica$ python manage.py runserver
