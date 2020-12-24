@@ -1,8 +1,22 @@
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from .models import Post
 from marketing.models import Signup
+
+def search(request):
+    queryset = Post.objects.all() # post_list
+    query = request.GET.get('q')
+    # Q - Encapsulate filters as objects so they can be combined logically (using '&' and '|').
+    if query:
+        queryset = queryset.filter(
+            Q(title__icontains=query) |
+            Q(overview__icontains=query)
+        ).distinct()
+    context = {
+        'queryset': queryset
+    }
+    return render(request, 'search_results.html', context)
 
 def get_category_count():
     # queryset = Post \
