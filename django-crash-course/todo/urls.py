@@ -4,7 +4,8 @@ from .views import (
     todo_list,
     todo_detail,
     todo_create,
-    todo_update
+    todo_update,
+    todo_delete
 )
 
 app_name = 'todos'
@@ -14,6 +15,7 @@ urlpatterns = [
     path('create/', todo_create),
     path('<id>/', todo_detail),
     path('<id>/update/', todo_update),
+    path('<id>/delete/', todo_delete),
     # path('<id:int>/', todo_detail),
     # path('<todo_id>/', todo_detail),
 ]
