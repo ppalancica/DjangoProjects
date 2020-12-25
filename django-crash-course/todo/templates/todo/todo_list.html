@@ -14,7 +14,7 @@
     {% endif %}
     <ul>
     {% for todo in todo_list %}
-      <li>{{ todo.name }} it's due {{ todo.due_date }}</li>
+      <li><a href="/{{ todo.id }}">{{ todo.name }}</a> it's due {{ todo.due_date }}</li>
     {% endfor %}
     </ul>
   </body>
